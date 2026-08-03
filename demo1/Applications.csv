@@ -1,0 +1,6 @@
+ApplicationID,ApplicationName,Criticality,LifecycleStatus,DeploymentType,ComplianceFlags,Environment,RTO_hours,RPO_hours,TechnicalDebt,SaaSAlternative
+APP001,ERP System,High,Active,VM,PCI,Production,4,2,Low,
+APP002,HR Portal,Medium,Active,VM,GDPR,Production,8,4,Medium,Workday
+APP003,Legacy Billing,High,Active,VM,SOX,Production,2,1,High,
+APP004,Dev Tools,Low,Retiring,VM,,Non-Production,24,24,Low,GitHub Actions
+APP005,Customer Portal,High,Active,VM,PCI,Production,1,1,Medium,

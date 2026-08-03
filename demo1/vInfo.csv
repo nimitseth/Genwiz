@@ -1,0 +1,13 @@
+VM Name,OS according to the configuration file,CPUs,Memory,Provisioned MB,Last update time,VMware Tools version status,Datacenter,ApplicationID
+ERP-VM-01,Windows Server 2019 Standard,8,32768,204800,2026-07-10,toolsOk,DC-East,APP001
+ERP-VM-02,Windows Server 2019 Standard,4,16384,102400,2026-07-10,toolsOk,DC-East,APP001
+ERP-VM-03,Windows Server 2019 Standard,4,16384,102400,2026-07-09,toolsOk,DC-East,APP001
+HR-VM-01,Windows Server 2022 Datacenter,4,16384,51200,2026-06-25,toolsOld,DC-West,APP002
+HR-VM-02,Windows Server 2022 Datacenter,4,8192,51200,2026-06-20,toolsOld,DC-West,APP002
+BIL-VM-01,Windows Server 2012 R2 Standard,8,32768,307200,2026-05-15,toolsOk,DC-East,APP003
+BIL-VM-02,Windows Server 2012 R2 Standard,8,32768,307200,2026-05-10,toolsOk,DC-East,APP003
+BIL-VM-03,Windows Server 2012 R2 Standard,4,16384,204800,2026-05-01,toolsNotInstalled,DC-East,APP003
+BIL-VM-04,Windows Server 2008 R2 Standard,4,8192,102400,2026-05-01,toolsNotInstalled,DC-East,APP003
+DEV-VM-01,Ubuntu 22.04 LTS,2,8192,51200,2026-07-12,toolsOk,DC-West,APP004
+CUS-VM-01,Red Hat Enterprise Linux 8,8,32768,204800,2026-07-08,toolsOk,DC-East,APP005
+CUS-VM-02,Red Hat Enterprise Linux 8,8,32768,204800,2026-07-08,toolsOk,DC-West,APP005
