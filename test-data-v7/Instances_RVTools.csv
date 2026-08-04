@@ -1,0 +1,14 @@
+instance_id,app_id,hostname,os,vcpu_count,ram_gb,vmware_tools_status,datacenter,last_discovered
+INS001,APP101,fax-gw-01,Windows Server 2008 R2,2,4,toolsOk,DC01,2025-01-15
+INS002,APP102,payments-01,Windows Server 2019,4,16,toolsOk,DC01,2026-07-01
+INS003,APP102,payments-02,Windows Server 2019,4,16,toolsOk,DC01,2026-07-01
+INS004,APP103,eu-portal-01,Ubuntu 22.04,2,8,toolsOk,DC02,2026-07-15
+INS005,APP104,claims-01,RHEL 7,8,32,toolsOld,DC01,2026-06-01
+INS006,APP104,claims-02,RHEL 7,8,32,toolsOld,DC01,2026-06-01
+INS007,APP105,partner-hub-01,Windows Server 2016,4,16,toolsOk,DC01,2026-06-20
+INS008,APP106,fin-dw-01,RHEL 8,8,64,toolsOk,DC03,2026-06-25
+INS009,APP131,order-hub-01,RHEL 8,4,16,toolsOk,DC02,2026-07-10
+INS010,APP141,billing-web-01,Windows Server 2022,2,8,toolsOk,DC02,2026-07-05
+INS011,APP142,billing-db-01,RHEL 9,4,32,toolsOk,DC02,2026-07-05
+INS012,APP147,payroll-dev-01,Windows Server 2019,2,8,toolsOk,DC02,2026-06-15
+INS013,APP148,payroll-prod-01,Windows Server 2019,4,16,toolsOk,DC02,2026-06-15

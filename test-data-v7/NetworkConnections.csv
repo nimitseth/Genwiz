@@ -1,0 +1,11 @@
+source_host,dest_host,dest_port,connection_count,protocol,observation_date
+payments-01,fin-dw-01,1433,450,TCP,2026-07-01
+payments-02,fin-dw-01,1433,380,TCP,2026-07-01
+claims-01,billing-db-01,5432,210,TCP,2026-06-30
+claims-02,billing-db-01,5432,195,TCP,2026-06-30
+billing-web-01,billing-db-01,3306,1250,TCP,2026-07-05
+order-hub-01,billing-web-01,443,1500,TCP,2026-07-10
+order-hub-01,partner-hub-01,443,300,TCP,2026-07-10
+eu-portal-01,order-hub-01,443,2200,TCP,2026-07-15
+partner-hub-01,fin-dw-01,5432,90,TCP,2026-06-25
+payments-01,order-hub-01,8080,50,TCP,2026-07-01
