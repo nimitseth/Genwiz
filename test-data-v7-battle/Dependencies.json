@@ -1,0 +1,280 @@
+{
+  "export_metadata": {
+    "source": "ServiceNow CMDB",
+    "export_date": "2026-07-15",
+    "format_version": "2.1",
+    "record_count": 30
+  },
+  "dependencies": [
+    {
+      "dep_id": "DEP001",
+      "source_application_id": "APP_BTL040",
+      "target_application_id": "APP_BTL036",
+      "relationship_type": "CALLS",
+      "coupling": "TIGHT",
+      "interface": "REST API",
+      "criticality": "HIGH"
+    },
+    {
+      "dep_id": "DEP002",
+      "source_application_id": "APP_BTL020",
+      "target_application_id": "APP_BTL046",
+      "relationship_type": "AUTHENTICATES_VIA",
+      "coupling": "TIGHT",
+      "interface": "OAuth2",
+      "criticality": "HIGH"
+    },
+    {
+      "dep_id": "DEP003",
+      "source_application_id": "APP_BTL021",
+      "target_application_id": "APP_BTL046",
+      "relationship_type": "AUTHENTICATES_VIA",
+      "coupling": "TIGHT",
+      "interface": "OAuth2",
+      "criticality": "HIGH"
+    },
+    {
+      "dep_id": "DEP004",
+      "source_application_id": "APP_BTL030",
+      "target_application_id": "APP_BTL046",
+      "relationship_type": "AUTHENTICATES_VIA",
+      "coupling": "TIGHT",
+      "interface": "OAuth2",
+      "criticality": "HIGH"
+    },
+    {
+      "dep_id": "DEP005",
+      "source_application_id": "APP_BTL040",
+      "target_application_id": "APP_BTL046",
+      "relationship_type": "AUTHENTICATES_VIA",
+      "coupling": "TIGHT",
+      "interface": "OAuth2",
+      "criticality": "HIGH"
+    },
+    {
+      "dep_id": "DEP006",
+      "source_application_id": "APP_BTL041",
+      "target_application_id": "APP_BTL046",
+      "relationship_type": "AUTHENTICATES_VIA",
+      "coupling": "TIGHT",
+      "interface": "OAuth2",
+      "criticality": "HIGH"
+    },
+    {
+      "dep_id": "DEP007",
+      "source_application_id": "APP_HUB01",
+      "target_application_id": "APP_BTL046",
+      "relationship_type": "AUTHENTICATES_VIA",
+      "coupling": "TIGHT",
+      "interface": "OAuth2",
+      "criticality": "HIGH"
+    },
+    {
+      "dep_id": "DEP008",
+      "source_application_id": "APP_BTL036",
+      "target_application_id": "APP_HUB02",
+      "relationship_type": "PUBLISHES_TO",
+      "coupling": "TIGHT",
+      "interface": "ActiveMQ JMS",
+      "criticality": "HIGH"
+    },
+    {
+      "dep_id": "DEP009",
+      "source_application_id": "APP_BTL020",
+      "target_application_id": "APP_HUB02",
+      "relationship_type": "SUBSCRIBES_TO",
+      "coupling": "TIGHT",
+      "interface": "ActiveMQ JMS",
+      "criticality": "HIGH"
+    },
+    {
+      "dep_id": "DEP010",
+      "source_application_id": "APP_BTL022",
+      "target_application_id": "APP_HUB02",
+      "relationship_type": "PUBLISHES_TO",
+      "coupling": "INFERRED",
+      "interface": "AMQP",
+      "criticality": "MEDIUM"
+    },
+    {
+      "dep_id": "DEP011",
+      "source_application_id": "APP_BTL021",
+      "target_application_id": "APP_HUB01",
+      "relationship_type": "CALLS",
+      "coupling": "INFERRED",
+      "interface": "REST API",
+      "criticality": "MEDIUM"
+    },
+    {
+      "dep_id": "DEP012",
+      "source_application_id": "APP_BTL033",
+      "target_application_id": "APP_HUB01",
+      "relationship_type": "CALLS",
+      "coupling": "INFERRED",
+      "interface": "REST API",
+      "criticality": "MEDIUM"
+    },
+    {
+      "dep_id": "DEP013",
+      "source_application_id": "APP_BTL020",
+      "target_application_id": "APP_HUB01",
+      "relationship_type": "CALLS",
+      "coupling": "TIGHT",
+      "interface": "REST API",
+      "criticality": "HIGH"
+    },
+    {
+      "dep_id": "DEP014",
+      "source_application_id": "APP_BTL047",
+      "target_application_id": "APP_BTL046",
+      "relationship_type": "DEPENDS_ON",
+      "coupling": "TIGHT",
+      "interface": "Internal RPC",
+      "criticality": "HIGH"
+    },
+    {
+      "dep_id": "DEP015",
+      "source_application_id": "APP_BTL060",
+      "target_application_id": "APP_BTL020",
+      "relationship_type": "DR_REPLICATES",
+      "coupling": "TIGHT",
+      "interface": "Oracle Data Guard",
+      "criticality": "HIGH"
+    },
+    {
+      "dep_id": "DEP016",
+      "source_application_id": "APP_BTL030",
+      "target_application_id": "APP_HUB01",
+      "relationship_type": "CALLS",
+      "coupling": "INFERRED",
+      "interface": "REST API",
+      "criticality": "MEDIUM"
+    },
+    {
+      "dep_id": "DEP017",
+      "source_application_id": "APP_BTL024",
+      "target_application_id": "APP_BTL020",
+      "relationship_type": "CALLS",
+      "coupling": "TIGHT",
+      "interface": "Internal RPC",
+      "criticality": "HIGH"
+    },
+    {
+      "dep_id": "DEP018",
+      "source_application_id": "APP_BTL023",
+      "target_application_id": "APP_HUB02",
+      "relationship_type": "SUBSCRIBES_TO",
+      "coupling": "INFERRED",
+      "interface": "AMQP",
+      "criticality": "MEDIUM"
+    },
+    {
+      "dep_id": "DEP019",
+      "source_application_id": "APP_DQ003",
+      "target_application_id": "APP_HUB02",
+      "relationship_type": "PUBLISHES_TO",
+      "coupling": "INFERRED",
+      "interface": "ActiveMQ JMS",
+      "criticality": "LOW"
+    },
+    {
+      "dep_id": "DEP020",
+      "source_application_id": "APP_BTL041",
+      "target_application_id": "APP_HUB01",
+      "relationship_type": "CALLS",
+      "coupling": "INFERRED",
+      "interface": "REST API",
+      "criticality": "MEDIUM"
+    },
+    {
+      "dep_id": "DEP021",
+      "source_application_id": "APP_BTL037",
+      "target_application_id": "APP_BTL046",
+      "relationship_type": "AUTHENTICATES_VIA",
+      "coupling": "TIGHT",
+      "interface": "OAuth2",
+      "criticality": "HIGH"
+    },
+    {
+      "dep_id": "DEP022",
+      "source_application_id": "APP_BTL043",
+      "target_application_id": "APP_BTL046",
+      "relationship_type": "AUTHENTICATES_VIA",
+      "coupling": "INFERRED",
+      "interface": "OAuth2",
+      "criticality": "MEDIUM"
+    },
+    {
+      "dep_id": "DEP023",
+      "source_application_id": "APP_BTL050",
+      "target_application_id": "APP_BTL053",
+      "relationship_type": "PUSHES_METRICS_TO",
+      "coupling": "INFERRED",
+      "interface": "Prometheus",
+      "criticality": "LOW"
+    },
+    {
+      "dep_id": "DEP024",
+      "source_application_id": "APP_BTL051",
+      "target_application_id": "APP_BTL050",
+      "relationship_type": "FEEDS_INTO",
+      "coupling": "INFERRED",
+      "interface": "Prometheus Remote Write",
+      "criticality": "LOW"
+    },
+    {
+      "dep_id": "DEP025",
+      "source_application_id": "APP_BTL052",
+      "target_application_id": "APP_BTL049",
+      "relationship_type": "BACKS_UP",
+      "coupling": "INFERRED",
+      "interface": "Veeam Agent",
+      "criticality": "LOW"
+    },
+    {
+      "dep_id": "DEP026",
+      "source_application_id": "APP_DQ001",
+      "target_application_id": "APP_HUB01",
+      "relationship_type": "CALLS",
+      "coupling": "INFERRED",
+      "interface": "REST API",
+      "criticality": "MEDIUM"
+    },
+    {
+      "dep_id": "DEP027",
+      "source_application_id": "APP_BTL044",
+      "target_application_id": "APP_HUB01",
+      "relationship_type": "CALLS",
+      "coupling": "INFERRED",
+      "interface": "REST API",
+      "criticality": "LOW"
+    },
+    {
+      "dep_id": "DEP028",
+      "source_application_id": "APP_BTL042",
+      "target_application_id": "APP_BTL050",
+      "relationship_type": "READS_FROM",
+      "coupling": "INFERRED",
+      "interface": "Elasticsearch API",
+      "criticality": "LOW"
+    },
+    {
+      "dep_id": "DEP029",
+      "source_application_id": "APP_BTL054",
+      "target_application_id": "APP_BTL040",
+      "relationship_type": "CACHES_FOR",
+      "coupling": "INFERRED",
+      "interface": "Redis",
+      "criticality": "MEDIUM"
+    },
+    {
+      "dep_id": "DEP030",
+      "source_application_id": "APP_BTL045",
+      "target_application_id": "APP_BTL046",
+      "relationship_type": "AUTHENTICATES_VIA",
+      "coupling": "INFERRED",
+      "interface": "OAuth2",
+      "criticality": "LOW"
+    }
+  ]
+}

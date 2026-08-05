@@ -1,0 +1,57 @@
+ApplicationID,ApplicationName,Owner,Criticality,LifecycleStatus,Environment,OS,Middleware,ComplianceFlags,TechnicalDebt,SaaSAlternative,RTO_hours,RPO_hours,BusinessService,Cluster,FieldNotes
+APP_BTL001,FaxServer,IT Operations,Low,DECOMMISSION PLANNED,Test,,,,,N,48,24,Internal Tools,,No VMs. Scheduled for decommission Q1 2025.
+APP_BTL002,LegacyBulkPrint,Print Services,Low Impact,Sunset,Prod,Windows Server 2003,,,Low,N,72,48,Print Services,,Hardware vendor no longer supported. Paper print only.
+APP_BTL003,EOLArchiveSystem,Records Management,P3,End of Life,Prod,,,,,N,168,48,Archive,,Replaced by SharePoint. Pending data migration sign-off.
+APP_BTL004,OldEDIGateway,Supply Chain,Standard,Decommissioning,Prod,,,,,N,24,8,Supply Chain Ops,,EDI replaced by modern API gateway APP_HUB01.
+APP_BTL005,ObsoleteReports,Finance,Low,Decomm,Test,,,,,Y,168,72,Finance,,SaaS replacement Tableau deployed. Decomm pending license expiry.
+APP_BTL006,ArchivedTicketSys,ITSM,Low,Retired,Test,,,,,N,168,48,ITSM,,Replaced by ServiceNow. Data archived to cold storage.
+APP_BTL007,OldCRMBatch,Sales,Low Impact,Sunset,Test,Windows Server 2008,,,,N,168,72,Sales,,CRM batch replaced by Salesforce integration. No active users.
+APP_BTL008,LegacyFTPServer,IT,Standard,DECOMMISSION PLANNED,Test,Windows Server 2003,,,Low,N,48,24,File Transfer,,FTP replaced by SFTP gateway. Legacy app for archive access only.
+APP_BTL009,StaticWebServer,Marketing,Low,End of Life,Test,Windows Server 2012,,,,N,168,48,Marketing Web,,Static HTML server. Content migrated to CMS. Decomm after redirect.
+APP_BTL010,LatencyTradingEngine,Trading Desk,Mission Critical,Active,Prod,RHEL 9,,data residency - cannot leave UK data centre; latency SLA <1ms requires on-prem co-location,Low,N,0,0,Trading,,Sub-millisecond latency requirement. Cloud RTT unacceptable.
+APP_BTL011,SovereignDataVault,Compliance,P1,Active,Prod,Windows Server 2022,,GDPR data sovereignty - all UK personal data must remain on UK on-premises infrastructure only,Low,N,4,1,Compliance,,Regulatory requirement confirmed by DPO and Legal March 2025.
+APP_BTL012,HardwareLicenseMgr,IT,Standard,Active,Prod,Windows Server 2019,,hardware dongle required - vendor license tied to physical USB dongle; cannot migrate to cloud,Medium,N,8,4,IT Ops,,Vendor refuses to issue cloud license. Dongle tied to hardware serial.
+APP_BTL020,CoreBankingPlatform,App Owner A,Mission Critical,Active,Prod,RHEL 8,Oracle 19c,"SOX regulated, PCI-DSS Level 1",High,N,1,0,Core Banking,CL-PROD-01,Monolithic COBOL core + Java wrapper. 2.3M lines. 47 tightly-coupled downstream interfaces.
+APP_BTL021,UnderwritingEngine,Risk Management,P1,Production,Prod,RHEL 8,JBoss EAP 7,PCI-DSS,High,N,2,1,Insurance Underwriting,CL-PROD-01,Custom ML scoring engine. No unit tests. Vendor support ended. Refactor to cloud-native micro-services recommended.
+APP_BTL022,ActuarialPlatform,App Owner B,Business Critical,Live,Prod,Windows Server 2019,.NET 8,SOX,High,N,4,2,Actuarial Modeling,,Complex proprietary actuarial models. Requires architecture re-design for cloud elasticity.
+APP_BTL023,RegulatoryReportingHub,Compliance,P1,Active,Prod,RHEL 8,Apache 2.4,SOX,High,N,2,1,Regulatory Reporting,CL-PROD-01,Complex data aggregation from 12 source systems. Regulatory filing deadlines add constraint.
+APP_BTL024,TradeSettlementEngine,Trading Desk,Mission Critical,Production,Prod,RHEL 8,JBoss EAP 7,PCI-DSS,High,N,1,0,Trade Settlement,CL-PROD-01,Real-time settlement processing. Tightly coupled with CoreBanking. 5-year-old custom messaging format.
+APP_BTL030,ClaimsPortal,Claims Operations,CRITICAL,Active,Prod,RHEL7,Tomcat 8,,Medium,N,4,2,Claims Processing,,Customer-facing claims portal. RHEL7 EOL risk. Tomcat 8 EOL March 2024.
+APP_BTL031,PolicyAdminSystem,Insurance Ops,High,Production,Prod,Red Hat 7,Apache 2.2,,Medium,N,4,2,Policy Management,,Policy lifecycle management. Red Hat 7 = RHEL 7 EOL. Apache 2.2 end-of-life.
+APP_BTL032,LegacyWebFront,Marketing,Standard,Active,Prod,Windows 2012 R2,IIS 8,,Medium,N,8,4,Marketing Web,,Windows 2012 R2 extended support ended Oct 2023. IIS 8 tied to WS2012 EOL.
+APP_BTL033,ERPCorePlatform,Finance,Tier 1,Active,Prod,CentOS Linux 7,Tomcat 9,,Medium,N,2,1,ERP,,CentOS 7 EOL June 2024. Business critical ERP. Urgent replatform to RHEL 8 base.
+APP_BTL034,OracleFinanceDB,Finance,Mission Critical,Active,Prod,RHEL7,,SOX,Low,N,1,0,Finance DB,,Oracle 11g on RHEL7. Double EOL risk. Oracle 11g extended support ended Dec 2020.
+APP_BTL035,LegacySQLReporting,BI Team,Standard,Active,Prod,Windows 2012,,N,Low,N,8,4,Reporting,,SQL Server 2012 EOL July 2022. Windows 2012 EOL Oct 2023.
+APP_BTL036,JBossIntegrationHub,Integration Team,Standard,Active,Prod,RHEL 8,JBoss AS 7,,Medium,N,2,1,Integration,,Central integration middleware. JBoss AS 7 EOL Dec 2016. Downstream dependency for payments pipeline.
+APP_BTL037,WebLogicCustomerPortal,Customer Services,Standard,Active,Prod,RHEL 8,WebLogic 12c,,Medium,N,4,2,Customer Self-Service,CL-PROD-02,WebLogic 12c premier support ended Dec 2022. High change frequency.
+APP_BTL038,DotNetLegacyApp,IT,Standard,Active,Dev,Win Server 2016,.NET Framework 4,,Medium,N,8,4,Internal Tools,,Windows Server 2016 mainstream ended Jan 2022. .NET Framework 4 migration to .NET 8 recommended.
+APP_BTL039,CentOS8BatchWorker,Operations,P2,Active,Prod,CentOS 8,,,Low,N,12,4,Batch Processing,,CentOS 8 EOL Dec 2021 (early termination). Migrate to Rocky/RHEL 8.
+APP_BTL040,PaymentsAPI,Payments Team,Tier 1,Active,Prod,RHEL 8,,PCI-DSS,Low,N,1,0,Payments,"",API-first payments service. Calls JBossIntegrationHub for transaction routing.
+APP_BTL041,CustomerProfileSvc,CX Team,CRITICAL,Active,Prod,Windows2019,,GDPR data processing - standard EU personal data controller,Low,N,2,1,CRM,,Customer profile microservice. GDPR but no blocking constraint - cloud providers support GDPR.
+APP_BTL042,ReportingDashboard,Analytics,Standard,Active,Prod,Ubuntu 22.04,,,Low,Y,24,8,Analytics,,Grafana dashboards. SaaS alternative Power BI evaluated but not approved.
+APP_BTL043,HRManagementSystem,Human Resources,Standard,Live,Prod,Windows Server 2022,,,Low,N,8,4,HR,,Workday integration. Modern stack. Rehost candidate.
+APP_BTL044,InventoryMgr,Supply Chain,Standard,Active,Prod,RHEL 9,,,Low,N,4,2,Inventory,,REST API inventory service. No outstanding tech debt.
+APP_BTL045,EmailNotification,IT,Low,Active,Prod,Ubuntu 20.04,,,Low,N,48,24,Notification,,SMTP relay service. Low criticality. Rehost to cloud SMTP.
+APP_BTL046,AuthService,Security,Mission Critical,Active,Prod,Windows Server 2019,,,Low,N,0,0,Identity & Access,CL-SEC-01,Central OAuth2/OIDC provider. All apps depend on this for authentication. Must migrate first.
+APP_BTL047,SessionManager,Security,P1,Active,Prod,RHEL 8,,,Low,N,0,0,Identity & Access,CL-SEC-01,Session state service. Tightly coupled with AuthService. Must co-migrate.
+APP_BTL048,NotificationSvc,IT,Low Impact,Active,Prod,Ubuntu 22.04,,,Low,N,48,12,Notification,,Push notification service. Cloud-native redesign not required.
+APP_BTL049,FileStoreService,IT,Standard,Active,Prod,Windows Server 2019,,,Low,N,8,4,File Storage,,SMB/NFS file service. Azure Files target.
+APP_BTL050,LogAggregator,Operations,Standard,Production,Prod,Ubuntu 22.04,,,Low,N,24,8,Observability,,ELK stack log aggregation. Azure Monitor as target.
+APP_BTL051,MonitoringAgent,Operations,Low,Active,Prod,RHEL 9,,,Low,N,72,24,Observability,,Prometheus/Grafana. Replace with Azure Monitor.
+APP_BTL052,BackupService,IT,Standard,Active,Prod,Windows Server 2019,,,Low,N,24,4,Backup,,Veeam backup. Azure Backup as cloud replacement.
+APP_BTL053,ConfigurationMgr,IT,Standard,Active,Prod,RHEL 8,,,Low,N,4,2,ITSM,,Ansible AWX. Azure Automation as target.
+APP_BTL054,CacheLayerRedis,Operations,Low,Active,Prod,Ubuntu 20.04,,,Low,N,2,1,Platform,,Redis cache cluster. Azure Cache for Redis as target.
+APP_HUB01,EnterpriseAPIGateway,Integration Architecture,Mission Critical,Active,Prod,RHEL 9,,,Low,N,0,0,Integration Platform,CL-INT-01,Kong API Gateway. Central ingress for all external-facing services. 10+ downstream consumers.
+APP_HUB02,EnterpriseServiceBus,Integration Architecture,P1,Active,Prod,RHEL 8,JBoss EAP 7,,Medium,N,0,0,Integration Platform,CL-INT-01,MuleSoft ESB. All LOB systems route through this. Upgrade to MuleSoft CloudHub recommended.
+APP_SS001,ThirdPartyVendorApp,Vendor Relations,Standard,Active,Prod,,,N/A,Low,N,48,24,Vendor Mgmt,,Vendor-managed application. No CMDB inventory. VM data not provided by vendor.
+APP_SS002,LegacyDesktopTool,IT,Low,Active,Test,,,N/A,Low,N,168,72,IT,,Thin-client application. No server component discovered.
+APP_SS003,ExcelMacroService,IT Operations,Low Impact,Active,Prod,,,N/A,Low,N,168,48,Finance,,Excel macro run on shared drive. No formal server component.
+APP_SS004,ManualProcessTracker,Operations,Standard,Active,Prod,,,,N/A,N,72,24,Operations,,Manual tracking tool. Minimal IT footprint.
+APP_SS005,ShadowITPortal,Unknown,,Active,Prod,,,,N/A,N,24,8,Unknown,,Discovered via network scan. No formal CMDB record. Owner unknown.
+APP_DQ001,TreasuryMgmtSys,Treasury,Business Critical,Active,Prod,Red Hat Enterprise Linux 8,Oracle 19c,SOX,Medium,N,1,0,Treasury,,Full name OS. Oracle 19c supported. Rehost candidate.
+APP_DQ002,RiskCalculator,Risk,Mission Critical,Active,Prod,Windows Server 2016,.NET 8,PCI-DSS,Medium,N,2,1,Risk Management,,Modern .NET 8 on WS2016. Rehost candidate.
+APP_DQ003,ComplexIntegrationApp,IT,Standard,Active,Prod,RHEL 8,Apache 2.4,,Medium,N,4,2,Integration,,Connects to 7 systems. Near-hub. Watch bundling.
+APP_DQ004,LonelyOrphan,,,,Prod,,,,,,,,,,No owner. No environment. No OS. Maximum data gap scenario.
+APP_DQ005,WellDocumentedApp,Platform Engineering,Standard,Active,Prod,RHEL 9,Apache 2.4,,Low,N,4,2,Platform,,All fields populated. HIGH confidence expected. Gold standard data quality.
+APP_BTL060,DisasterRecovery,IT,Mission Critical,Active,DR,Windows Server 2022,,,Low,N,0,0,DR,,DR site for CoreBanking. Must migrate with or after CoreBanking.
+APP_BTL061,TestEnvironmentMgr,QA,Low,Active,Test,Ubuntu 22.04,,,Low,N,168,72,QA,,Test environment controller. Low priority. Wave 4.

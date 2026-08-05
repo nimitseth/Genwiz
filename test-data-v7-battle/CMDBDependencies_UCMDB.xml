@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Simulated HP uCMDB / BMC Remedy XML dependency export.
+  Format: flat child elements, each <dependency> is one record.
+  Tests: XML parser pass-1 (flat record extraction) + FUZZY_MAP on tag names.
+  Real clients: HP uCMDB, BMC Atrium CMDB, CA CMDB all export in this style.
+-->
+<CMDBExport exportDate="2026-07-15" source="HP_UCMDB_v11" tenant="SAMPLE_CORP">
+  <metadata>
+    <exportedBy>cmdb-admin@sample-corp.internal</exportedBy>
+    <totalRecords>12</totalRecords>
+  </metadata>
+
+  <!-- TIGHT coupling: these should produce Signal 2 edges with high priority -->
+  <dependency id="UCMDB-001">
+    <SourceApp>APP_BTL046</SourceApp>
+    <TargetApp>APP_BTL047</TargetApp>
+    <RelType>DEPENDS_ON</RelType>
+    <coupling>TIGHT</coupling>
+    <description>SessionManager depends on AuthService for token validation</description>
+    <environment>PROD</environment>
+    <verified>Y</verified>
+  </dependency>
+
+  <dependency id="UCMDB-002">
+    <SourceApp>APP_BTL020</SourceApp>
+    <TargetApp>APP_BTL046</TargetApp>
+    <RelType>CALLS</RelType>
+    <coupling>TIGHT</coupling>
+    <description>CoreBanking calls AuthService for every transaction authentication</description>
+    <environment>PROD</environment>
+    <verified>Y</verified>
+  </dependency>
+
+  <dependency id="UCMDB-003">
+    <SourceApp>APP_BTL021</SourceApp>
+    <TargetApp>APP_BTL046</TargetApp>
+    <RelType>CALLS</RelType>
+    <coupling>TIGHT</coupling>
+    <description>UnderwritingEngine requires AuthService for user session validation</description>
+    <environment>PROD</environment>
+    <verified>Y</verified>
+  </dependency>
+
+  <dependency id="UCMDB-004">
+    <SourceApp>APP_BTL022</SourceApp>
+    <TargetApp>APP_BTL046</TargetApp>
+    <RelType>CALLS</RelType>
+    <coupling>INFERRED</coupling>
+    <description>ActuarialPlatform uses SSO via AuthService</description>
+    <environment>PROD</environment>
+    <verified>N</verified>
+  </dependency>
+
+  <!-- BLOCKER/DEPENDENT conflict scenario: PaymentsAPI depends on JBossHub -->
+  <dependency id="UCMDB-005">
+    <SourceApp>APP_BTL040</SourceApp>
+    <TargetApp>APP_BTL036</TargetApp>
+    <RelType>ROUTES_THROUGH</RelType>
+    <coupling>TIGHT</coupling>
+    <description>PaymentsAPI routes all transactions through JBossIntegrationHub middleware</description>
+    <environment>PROD</environment>
+    <verified>Y</verified>
+  </dependency>
+
+  <dependency id="UCMDB-006">
+    <SourceApp>APP_BTL036</SourceApp>
+    <TargetApp>APP_HUB02</TargetApp>
+    <RelType>PUBLISHES_TO</RelType>
+    <coupling>TIGHT</coupling>
+    <description>JBossIntegrationHub publishes events to EnterpriseServiceBus</description>
+    <environment>PROD</environment>
+    <verified>Y</verified>
+  </dependency>
+
+  <!-- CoreBanking cluster: tightly coupled, must co-migrate -->
+  <dependency id="UCMDB-007">
+    <SourceApp>APP_BTL020</SourceApp>
+    <TargetApp>APP_BTL060</TargetApp>
+    <RelType>DR_REPLICATION</RelType>
+    <coupling>TIGHT</coupling>
+    <description>CoreBanking replicates to DisasterRecovery site continuously</description>
+    <environment>DR</environment>
+    <verified>Y</verified>
+  </dependency>
+
+  <dependency id="UCMDB-008">
+    <SourceApp>APP_BTL041</SourceApp>
+    <TargetApp>APP_HUB01</TargetApp>
+    <RelType>CALLS</RelType>
+    <coupling>INFERRED</coupling>
+    <description>CustomerProfileSvc calls EnterpriseAPIGateway for downstream routing</description>
+    <environment>PROD</environment>
+    <verified>N</verified>
+  </dependency>
+
+  <!-- WebLogic cluster: must co-migrate with JBoss -->
+  <dependency id="UCMDB-009">
+    <SourceApp>APP_BTL037</SourceApp>
+    <TargetApp>APP_BTL036</TargetApp>
+    <RelType>CALLS</RelType>
+    <coupling>TIGHT</coupling>
+    <description>WebLogicCustomerPortal calls JBossIntegrationHub for backend service orchestration</description>
+    <environment>PROD</environment>
+    <verified>Y</verified>
+  </dependency>
+
+  <dependency id="UCMDB-010">
+    <SourceApp>APP_BTL038</SourceApp>
+    <TargetApp>APP_BTL036</TargetApp>
+    <RelType>CALLS</RelType>
+    <coupling>TIGHT</coupling>
+    <description>DotNetLegacyApp integrates with JBossIntegrationHub via SOAP</description>
+    <environment>PROD</environment>
+    <verified>Y</verified>
+  </dependency>
+
+  <!-- ESB hub connections -->
+  <dependency id="UCMDB-011">
+    <SourceApp>APP_BTL033</SourceApp>
+    <TargetApp>APP_HUB02</TargetApp>
+    <RelType>SUBSCRIBES_TO</RelType>
+    <coupling>INFERRED</coupling>
+    <description>ERPCorePlatform receives inventory events from EnterpriseServiceBus</description>
+    <environment>PROD</environment>
+    <verified>N</verified>
+  </dependency>
+
+  <dependency id="UCMDB-012">
+    <SourceApp>APP_BTL053</SourceApp>
+    <TargetApp>APP_HUB01</TargetApp>
+    <RelType>CALLS</RelType>
+    <coupling>INFERRED</coupling>
+    <description>ConfigurationMgr pushes config changes via APIGateway</description>
+    <environment>PROD</environment>
+    <verified>N</verified>
+  </dependency>
+</CMDBExport>

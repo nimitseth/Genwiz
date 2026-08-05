@@ -1,0 +1,143 @@
+# Simulated Ansible inventory export from a real enterprise environment.
+# Format: Ansible standard inventory YAML with host vars embedded.
+# Tests: YAML parser Ansible-inventory branch + host-to-app inference (Signal 4).
+# Real clients: Infrastructure teams often provide Ansible AWX/Tower inventories
+# as the most up-to-date server inventory when CMDB is stale.
+#
+# Key test scenarios in this file:
+#   - OS names as Ansible facts: 'ansible_distribution' + 'ansible_distribution_version'
+#   - RAM in MB as ansible fact (ansible_memtotal_mb) -> needs unit conversion
+#   - vCPU as 'ansible_processor_vcpus'
+#   - ApplicationID inferred from 'app_id' or 'application' host var
+#   - Some hosts with no ApplicationID (orphan scenario)
+#   - Stale hosts flagged by 'last_connection' date
+
+all:
+  vars:
+    datacenter: DC-LONDON
+    environment: prod
+  hosts:
+    # CoreBanking cluster - RAM in MB (ansible fact format)
+    cb-prod-01:
+      app_id: APP_BTL020
+      ansible_distribution: RedHat
+      ansible_distribution_version: "8.9"
+      ansible_processor_vcpus: 4
+      ansible_memtotal_mb: 32768
+      ansible_devices_sda_size: "500.00 GB"
+      last_connection: "2026-07-10T08:15:00"
+      environment: prod
+      role: primary
+
+    cb-prod-02:
+      app_id: APP_BTL020
+      ansible_distribution: RedHat
+      ansible_distribution_version: "8.9"
+      ansible_processor_vcpus: 4
+      ansible_memtotal_mb: 32768
+      ansible_devices_sda_size: "500.00 GB"
+      last_connection: "2026-07-10T08:15:00"
+      environment: prod
+      role: secondary
+
+    # AuthService - critical BLOCKER for many apps
+    auth-prod-01:
+      app_id: APP_BTL046
+      ansible_distribution: Windows
+      ansible_distribution_version: "2019"
+      ansible_processor_vcpus: 4
+      ansible_memtotal_mb: 16384
+      last_connection: "2026-07-15T06:00:00"
+      environment: prod
+      role: primary
+
+    auth-prod-02:
+      app_id: APP_BTL046
+      ansible_distribution: Windows
+      ansible_distribution_version: "2019"
+      ansible_processor_vcpus: 4
+      ansible_memtotal_mb: 16384
+      last_connection: "2026-07-15T06:00:00"
+      environment: prod
+      role: secondary
+
+    # Claims portal - RHEL7 (tests OS normaliser via ansible facts)
+    clm-prod-01:
+      app_id: APP_BTL030
+      ansible_distribution: RedHat
+      ansible_distribution_version: "7.9"
+      ansible_processor_vcpus: 8
+      ansible_memtotal_mb: 32768
+      last_connection: "10/07/2026"
+      environment: prod
+      eol_flag: "Y"
+
+    clm-prod-02:
+      app_id: APP_BTL030
+      ansible_distribution: RedHat
+      ansible_distribution_version: "7.9"
+      ansible_processor_vcpus: 8
+      ansible_memtotal_mb: 32768
+      last_connection: "10/07/2026"
+      environment: prod
+      eol_flag: "Y"
+
+    # ERP - CentOS 7 (EOL - full name from ansible facts)
+    erp-prod-01:
+      app_id: APP_BTL033
+      ansible_distribution: CentOS
+      ansible_distribution_version: "7.9.2009"
+      ansible_processor_vcpus: 8
+      ansible_memtotal_mb: 32768
+      last_connection: "2026-07-01T12:00:00"
+      environment: prod
+
+    # Legacy SQL Reporting - stale date (should trigger stale flag)
+    lsr-prod-01:
+      app_id: APP_BTL035
+      ansible_distribution: Windows
+      ansible_distribution_version: "2012"
+      ansible_processor_vcpus: 4
+      ansible_memtotal_mb: 16384
+      last_connection: "15/05/2026"
+      environment: prod
+
+    # APIGateway hub
+    apig-prod-01:
+      app_id: APP_HUB01
+      ansible_distribution: RedHat
+      ansible_distribution_version: "9.3"
+      ansible_processor_vcpus: 4
+      ansible_memtotal_mb: 8192
+      last_connection: "2026-07-15T09:30:00"
+      environment: prod
+      role: primary
+
+    apig-prod-02:
+      app_id: APP_HUB01
+      ansible_distribution: RedHat
+      ansible_distribution_version: "9.3"
+      ansible_processor_vcpus: 4
+      ansible_memtotal_mb: 8192
+      last_connection: "2026-07-15T09:30:00"
+      environment: prod
+      role: secondary
+
+    # Orphaned hosts (no app_id - triggers orphaned VM warning)
+    unknown-batch-worker-01:
+      ansible_distribution: CentOS
+      ansible_distribution_version: "6.10"
+      ansible_processor_vcpus: 2
+      ansible_memtotal_mb: 4096
+      last_connection: "2024-01-20T00:00:00"
+      environment: prod
+      note: "No app ownership recorded. Discovered via network scan only."
+
+    unknown-legacy-proxy-01:
+      ansible_distribution: Windows
+      ansible_distribution_version: "2003"
+      ansible_processor_vcpus: 1
+      ansible_memtotal_mb: 2048
+      last_connection: "2023-06-01T00:00:00"
+      environment: prod
+      note: "Windows Server 2003. Extremely stale. No owner."

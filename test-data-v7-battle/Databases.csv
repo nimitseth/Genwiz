@@ -1,0 +1,26 @@
+db_id,ApplicationID,Type,Version,Size_GB,Host,EOL_Flag
+DB_001,APP_BTL020,Oracle,19c,2400,cb-prod-01,N
+DB_002,APP_BTL020,Oracle,19c,1800,cb-prod-02,N
+DB_003,APP_BTL021,Oracle,19c,850,uw-prod-01,N
+DB_004,APP_BTL022,SQL Server,2019,620,act-prod-01,N
+DB_005,APP_BTL034,Oracle,11g,3200,ofd-prod-01,Y
+DB_006,APP_BTL034,Oracle,11g,1600,ofd-prod-02,Y
+DB_007,APP_BTL035,SQL Server,2012,480,lsr-prod-01,Y
+DB_008,APP_BTL033,MySQL,5.7,920,erp-prod-01,Y
+DB_009,APP_BTL040,PostgreSQL,14,180,pay-prod-01,N
+DB_010,APP_BTL041,MySQL,8.0,340,cps-prod-01,N
+DB_011,APP_BTL043,SQL Server,2022,560,hrm-prod-01,N
+DB_012,APP_BTL049,SQL Server,2019,8200,fss-prod-01,N
+DB_013,APP_BTL050,Elasticsearch,8.11,2400,log-prod-01,N
+DB_014,APP_BTL054,Redis,7.2,64,cch-prod-01,N
+DB_015,APP_DQ001,Oracle,19c,1200,tms-prod-01,N
+DB_016,APP_DQ002,SQL Server,2019,740,rck-prod-01,N
+DB_017,APP_BTL023,PostgreSQL,15,420,rph-prod-01,N
+DB_018,APP_BTL024,Oracle,19c,1100,tse-prod-01,N
+DB_019,APP_BTL036,MySQL,5.6,280,jbh-prod-01,Y
+DB_020,APP_BTL037,Oracle,12c,640,wcp-prod-01,Y
+DB_021,APP_BTL030,PostgreSQL,13,780,clm-prod-01,N
+DB_022,APP_BTL031,MySQL,5.7,320,pol-prod-01,Y
+DB_023,APP_HUB02,MySQL,8.0,180,esb-prod-01,N
+DB_024,APP_BTL044,PostgreSQL,15,220,inv-prod-01,N
+DB_025,APP_BTL053,PostgreSQL,14,95,cfg-prod-01,N
